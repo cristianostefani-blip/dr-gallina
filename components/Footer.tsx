@@ -28,31 +28,34 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 mb-12">
           
-          <div className="lg:col-span-4 flex flex-col items-start space-y-6">
-            {/* Logo perfeitamente alinhada à esquerda sem margens negativas. Tamanho balanceado (w-40 h-20). */}
-            <div className="relative w-40 h-20">
-              <Image 
-                src="/images/logoNew1.png" 
-                alt={FOOTER_DATA.logoAlt}
-                fill
-                sizes="160px"
-                className="object-contain object-left"
-              />
-            </div>
-            
-            <div className="space-y-4 w-full">
-              <a href={`mailto:${FOOTER_DATA.email}`} className="flex items-center gap-3 text-sm sm:text-base hover:text-amber-400 transition-colors">
-                <Mail className="w-5 h-5 text-amber-500 flex-shrink-0" />
-                <span className="truncate">{FOOTER_DATA.email}</span>
-              </a>
-              
-              <div className="pt-2">
-                <WhatsAppButton 
-                  buttonLocation="footer_contact" 
-                  text="Falar no WhatsApp" 
-                  variant="outline"
-                  className="w-full sm:w-auto border-amber-500/50 text-amber-500 hover:bg-amber-500/10"
+          {/* Coluna 1: Centralização estrita no próprio eixo (items-center) */}
+          <div className="lg:col-span-4 flex flex-col items-center lg:items-start space-y-6">
+            <div className="flex flex-col items-center w-full lg:w-auto">
+              {/* Logo aumentada em 25% com contêiner quadrado baseado no recorte do Canva */}
+              <div className="relative w-52 h-52 mb-2">
+                <Image 
+                  src="/images/logoNew1.png" 
+                  alt={FOOTER_DATA.logoAlt}
+                  fill
+                  sizes="208px"
+                  className="object-contain object-center"
                 />
+              </div>
+              
+              <div className="flex flex-col items-center space-y-4">
+                <a href={`mailto:${FOOTER_DATA.email}`} className="flex items-center gap-3 text-sm sm:text-base hover:text-amber-400 transition-colors">
+                  <Mail className="w-5 h-5 text-amber-500 flex-shrink-0" />
+                  <span className="truncate">{FOOTER_DATA.email}</span>
+                </a>
+                
+                <div className="pt-2">
+                  <WhatsAppButton 
+                    buttonLocation="footer_contact" 
+                    text="Falar no WhatsApp" 
+                    variant="outline"
+                    className="w-full sm:w-auto border-amber-500/50 text-amber-500 hover:bg-amber-500/10"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -88,7 +91,6 @@ export default function Footer() {
 
         </div>
 
-        {/* Base do Footer com tipografia idêntica para o texto legal e a assinatura */}
         <div className="border-t border-white/10 pt-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-500 text-center md:text-left">
           <div className="flex flex-col md:flex-row gap-2 md:gap-6">
             <p>© {new Date().getFullYear()} Gallina Advocacia. Todos os direitos reservados.</p>
