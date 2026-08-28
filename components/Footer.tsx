@@ -29,12 +29,13 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 mb-12">
           
           <div className="lg:col-span-4 flex flex-col items-start space-y-6">
-            <div className="relative w-32 h-16">
+            {/* Logo ampliada em 50% (w-48 h-24) e alinhada ao eixo do email */}
+            <div className="relative w-48 h-24">
               <Image 
                 src="/images/logoNew1.png" 
                 alt={FOOTER_DATA.logoAlt}
                 fill
-                sizes="128px"
+                sizes="192px"
                 className="object-contain object-left"
               />
             </div>
@@ -74,11 +75,12 @@ export default function Footer() {
             </div>
           </div>
 
+          {/* Mapa com filtro CSS corrigido para evitar manchas laranjas */}
           <div className="lg:col-span-4 h-64 lg:h-auto w-full rounded-xl overflow-hidden border border-white/10 shadow-lg relative bg-[#0B132B]">
             <iframe 
               src={FOOTER_DATA.mapSrc} 
               className="absolute inset-0 w-full h-full"
-              style={{ border: 0, filter: "invert(90%) hue-rotate(180deg) contrast(80%) grayscale(20%)" }} 
+              style={{ border: 0, filter: "grayscale(30%) contrast(90%)" }} 
               allowFullScreen={false} 
               loading="lazy" 
               referrerPolicy="no-referrer-when-downgrade"
@@ -93,16 +95,16 @@ export default function Footer() {
             <p>OAB/SP 238.159</p>
           </div>
           
-          {/* Assinatura do Desenvolvedor */}
-          <p className="text-[10px] md:text-xs text-[#a89f91] tracking-[0.3em] font-light transition-colors duration-500">
+          {/* Assinatura de desenvolvedor com peso visual reduzido (Watermark elegante) */}
+          <p className="text-[10px] text-slate-600 font-light transition-colors duration-500">
             <a 
-              href="cstefani-desenvolvedor.vercel.app" 
+              href="https://cstefani-desenvolvedor.vercel.app" 
               target="_blank" 
               rel="noopener noreferrer"
               aria-label="Acessar o site do desenvolvedor C.Stefani"
-              className="hover:text-white transition-colors duration-300 group"
+              className="hover:text-slate-400 transition-colors duration-300 group"
             >
-              <span className="text-white font-medium group-hover:underline underline-offset-4">
+              <span className="font-medium group-hover:underline underline-offset-4">
                 C.Stefani
               </span> - Especialista em Soluções WEB
             </a>
