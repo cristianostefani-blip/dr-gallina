@@ -1,10 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { MapPin, Mail, Phone } from "lucide-react";
+import { MapPin, Mail } from "lucide-react";
 import WhatsAppButton from "./WhatsAppButton";
 
-// FÁBRICA DE DADOS - Centralização das informações de contato
 const FOOTER_DATA = {
   logoAlt: "Gallina Advocacia e Assessoria Jurídica",
   email: "contato@gallina.adv.br",
@@ -20,36 +19,33 @@ const FOOTER_DATA = {
       line2: "Bairro Alto, Curitiba - PR"
     }
   ],
-  // Iframe focado na sede principal (São Caetano)
   mapSrc: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3654.553944682029!2d-46.57468162386345!3d-23.61957436243283!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5cb2da629e41%3A0x80352ef864817a26!2sR.%20Niter%C3%B3i%2C%20362%20-%20Centro%2C%20S%C3%A3o%20Caetano%20do%20Sul%20-%20SP%2C%2009510-200!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr"
 };
 
 export default function Footer() {
   return (
-    <footer className="bg-[#050914] text-slate-300 border-t border-white/10 pt-20 pb-8 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 mb-16">
+    <footer className="bg-[#050914] text-slate-300 border-t border-white/10 pt-16 pb-6 relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 mb-12">
           
-          {/* Coluna 1: Marca e Contato Direto */}
-          <div className="lg:col-span-4 flex flex-col items-start space-y-8">
-            <div className="relative w-48 h-48 -ml-4">
+          <div className="lg:col-span-4 flex flex-col items-start space-y-6">
+            <div className="relative w-32 h-16">
               <Image 
                 src="/images/logoNew1.png" 
                 alt={FOOTER_DATA.logoAlt}
                 fill
-                sizes="192px"
-                className="object-contain"
+                sizes="128px"
+                className="object-contain object-left"
               />
             </div>
             
             <div className="space-y-4 w-full">
-              <a href={`mailto:${FOOTER_DATA.email}`} className="flex items-center gap-3 hover:text-amber-400 transition-colors">
-                <Mail className="w-5 h-5 text-amber-500" />
-                <span>{FOOTER_DATA.email}</span>
+              <a href={`mailto:${FOOTER_DATA.email}`} className="flex items-center gap-3 text-sm sm:text-base hover:text-amber-400 transition-colors">
+                <Mail className="w-5 h-5 text-amber-500 flex-shrink-0" />
+                <span className="truncate">{FOOTER_DATA.email}</span>
               </a>
               
-              {/* Integração com o Motor de Rastreamento (Silent Tracking) */}
-              <div className="pt-4">
+              <div className="pt-2">
                 <WhatsAppButton 
                   buttonLocation="footer_contact" 
                   text="Falar no WhatsApp" 
@@ -60,16 +56,15 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Coluna 2: Endereços */}
-          <div className="lg:col-span-4 flex flex-col space-y-8 lg:pt-8">
-            <h3 className="text-white font-semibold text-lg tracking-wide uppercase">Localização</h3>
-            <div className="space-y-8">
+          <div className="lg:col-span-4 flex flex-col space-y-6">
+            <h3 className="text-white font-semibold text-sm tracking-wide uppercase">Localização</h3>
+            <div className="space-y-6">
               {FOOTER_DATA.addresses.map((addr, idx) => (
-                <div key={idx} className="flex items-start gap-4">
-                  <MapPin className="w-6 h-6 text-amber-500 flex-shrink-0 mt-1" />
+                <div key={idx} className="flex items-start gap-3">
+                  <MapPin className="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5" />
                   <div>
-                    <h4 className="text-white font-medium mb-1">{addr.title}</h4>
-                    <p className="text-sm text-slate-400 leading-relaxed">
+                    <h4 className="text-white font-medium text-sm mb-1">{addr.title}</h4>
+                    <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
                       {addr.line1}<br />
                       {addr.line2}
                     </p>
@@ -79,12 +74,11 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Coluna 3: Mapa Interativo */}
-          <div className="lg:col-span-4 h-64 lg:h-auto w-full rounded-xl overflow-hidden border border-white/10 shadow-lg relative">
+          <div className="lg:col-span-4 h-64 lg:h-auto w-full rounded-xl overflow-hidden border border-white/10 shadow-lg relative bg-[#0B132B]">
             <iframe 
               src={FOOTER_DATA.mapSrc} 
               className="absolute inset-0 w-full h-full"
-              style={{ border: 0, filter: "invert(90%) hue-rotate(180deg) contrast(80%)" }} // Efeito Dark Mode no mapa
+              style={{ border: 0, filter: "invert(90%) hue-rotate(180deg) contrast(80%) grayscale(20%)" }} 
               allowFullScreen={false} 
               loading="lazy" 
               referrerPolicy="no-referrer-when-downgrade"
@@ -93,10 +87,26 @@ export default function Footer() {
 
         </div>
 
-        {/* Linha de Copyright e OAB */}
-        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-500">
-          <p>© {new Date().getFullYear()} Gallina Advocacia. Todos os direitos reservados.</p>
-          <p>OAB/SP 238.159</p>
+        <div className="border-t border-white/10 pt-6 flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-slate-500 text-center md:text-left">
+          <div className="flex flex-col md:flex-row gap-2 md:gap-6">
+            <p>© {new Date().getFullYear()} Gallina Advocacia. Todos os direitos reservados.</p>
+            <p>OAB/SP 238.159</p>
+          </div>
+          
+          {/* Assinatura do Desenvolvedor */}
+          <p className="text-[10px] md:text-xs text-[#a89f91] tracking-[0.3em] font-light transition-colors duration-500">
+            <a 
+              href="cstefani-desenvolvedor.vercel.app" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              aria-label="Acessar o site do desenvolvedor C.Stefani"
+              className="hover:text-white transition-colors duration-300 group"
+            >
+              <span className="text-white font-medium group-hover:underline underline-offset-4">
+                C.Stefani
+              </span> - Especialista em Soluções WEB
+            </a>
+          </p>
         </div>
       </div>
     </footer>
