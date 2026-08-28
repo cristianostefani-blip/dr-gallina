@@ -29,13 +29,13 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 mb-12">
           
           <div className="lg:col-span-4 flex flex-col items-start space-y-6">
-            {/* Logo ampliada em 50% (w-48 h-24) e alinhada ao eixo do email */}
-            <div className="relative w-48 h-24">
+            {/* Logo perfeitamente alinhada à esquerda sem margens negativas. Tamanho balanceado (w-40 h-20). */}
+            <div className="relative w-40 h-20">
               <Image 
                 src="/images/logoNew1.png" 
                 alt={FOOTER_DATA.logoAlt}
                 fill
-                sizes="192px"
+                sizes="160px"
                 className="object-contain object-left"
               />
             </div>
@@ -75,7 +75,6 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Mapa com filtro CSS corrigido para evitar manchas laranjas */}
           <div className="lg:col-span-4 h-64 lg:h-auto w-full rounded-xl overflow-hidden border border-white/10 shadow-lg relative bg-[#0B132B]">
             <iframe 
               src={FOOTER_DATA.mapSrc} 
@@ -89,26 +88,22 @@ export default function Footer() {
 
         </div>
 
-        <div className="border-t border-white/10 pt-6 flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-slate-500 text-center md:text-left">
+        {/* Base do Footer com tipografia idêntica para o texto legal e a assinatura */}
+        <div className="border-t border-white/10 pt-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-500 text-center md:text-left">
           <div className="flex flex-col md:flex-row gap-2 md:gap-6">
             <p>© {new Date().getFullYear()} Gallina Advocacia. Todos os direitos reservados.</p>
             <p>OAB/SP 238.159</p>
           </div>
           
-          {/* Assinatura de desenvolvedor com peso visual reduzido (Watermark elegante) */}
-          <p className="text-[10px] text-slate-600 font-light transition-colors duration-500">
-            <a 
-              href="https://cstefani-desenvolvedor.vercel.app" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              aria-label="Acessar o site do desenvolvedor C.Stefani"
-              className="hover:text-slate-400 transition-colors duration-300 group"
-            >
-              <span className="font-medium group-hover:underline underline-offset-4">
-                C.Stefani
-              </span> - Especialista em Soluções WEB
-            </a>
-          </p>
+          <a 
+            href="https://cstefani-desenvolvedor.vercel.app" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            aria-label="Acessar o site do desenvolvedor C.Stefani"
+            className="hover:text-slate-300 transition-colors duration-300"
+          >
+            C.Stefani - Especialista em Soluções WEB
+          </a>
         </div>
       </div>
     </footer>
