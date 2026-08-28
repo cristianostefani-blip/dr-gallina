@@ -14,7 +14,7 @@ const HERO_CONTENT = {
 
 export default function Hero() {
   return (
-    <section className="relative w-full min-h-[100svh] lg:min-h-[85vh] flex items-center bg-[#0B132B] overflow-hidden">
+    <section className="relative w-full min-h-[calc(100vh-6rem)] flex items-center bg-[#0B132B] overflow-hidden">
       
       {/* Container Principal Dividido (Grid) */}
       <div className="absolute inset-0 grid grid-cols-1 lg:grid-cols-2 w-full h-full">

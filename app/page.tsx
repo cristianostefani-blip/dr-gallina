@@ -8,8 +8,8 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-slate-50 antialiased selection:bg-amber-400/30 selection:text-amber-900 relative">
       <Header />
-      {/* pt-20 compensa a altura do Header fixo para o conteúdo do Hero não ficar oculto */}
-      <div className="pt-20 lg:pt-0">
+      {/* O padding-top (pt-24) agora é obrigatório em todas as telas, compensando os 96px de altura do Header */}
+      <div className="pt-24">
         <Hero />
       </div>
       <Biography />
