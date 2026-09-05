@@ -2,6 +2,8 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Biography from "@/components/Biography";
 import PracticeAreas from "@/components/PracticeAreas";
+import Methodology from "@/components/Methodology";
+import CallToAction from "@/components/CallToAction";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -14,6 +16,8 @@ export default function Home() {
       </div>
       <Biography />
       <PracticeAreas />
+      <Methodology />
+      <CallToAction />
       <Footer />
     </main>
   );
