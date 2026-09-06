@@ -18,26 +18,35 @@ export default function Hero() {
       
       {/* 
         A MÁGICA DA ENGENHARIA APLICADA (Parallax via Máscara):
-        O 'clip-path' no container absoluto atua como uma janela. 
-        Ele "prende" o elemento fixed aos limites exatos da seção Hero.
-        Isso restaura a imagem, evita que ela suma atrás da página e cria o efeito de deslize perfeito!
+        O clip-path mantém a imagem imune à rolagem.
       */}
       <div className="absolute inset-0 z-0" style={{ clipPath: "inset(0)" }}>
-        <div className="fixed top-0 left-0 w-full h-[100dvh] grid grid-cols-1 lg:grid-cols-2 pointer-events-none">
-          {/* Lado Institucional Sólido */}
+        
+        {/* 
+          CORREÇÃO DE ENQUADRAMENTO: 
+          top-24 (96px) compensa a altura do Header.
+          h-[calc(100dvh-6rem)] garante que a imagem vá até o fim da tela sem vazar.
+        */}
+        <div className="fixed top-24 left-0 w-full h-[calc(100dvh-6rem)] grid grid-cols-1 lg:grid-cols-2 pointer-events-none">
+          
           <div className="hidden lg:block bg-[#0B132B] h-full w-full"></div>
-          {/* Lado da Imagem */}
-          <div className="relative h-full w-full">
+          
+          <div className="relative h-full w-full bg-[#0B132B]">
+            {/* 
+              CORREÇÃO DE COR: 
+              Sem classes de opacidade. Imagem 100% nítida e real.
+              object-top garante que o topo da cabeça não seja cortado.
+            */}
             <Image
               src="/images/hero.jpg"
               alt={HERO_CONTENT.imageAlt}
               fill
               priority
               sizes="(max-width: 1024px) 100vw, 50vw"
-              className="object-cover object-[center_top] opacity-60 lg:opacity-90"
+              className="object-cover object-top"
             />
-            {/* Gradiente de fusão */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0B132B] via-transparent to-transparent lg:bg-gradient-to-l lg:from-transparent lg:via-[#0B132B]/50 lg:to-[#0B132B]"></div>
+            {/* Gradiente sutil movido apenas para as bordas extremas para dar contraste aos textos, sem manchar o rosto */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0B132B] via-transparent to-transparent lg:bg-gradient-to-l lg:from-[#0B132B]/80 lg:via-transparent lg:to-transparent"></div>
           </div>
         </div>
       </div>
@@ -51,7 +60,7 @@ export default function Hero() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="max-w-xl"
         >
-          {/* Glassmorphism Card com desfoque reduzido para revelar os traços do fundo */}
+          {/* Glassmorphism Premium */}
           <div className="backdrop-blur-[8px] bg-white/5 border border-white/10 rounded-3xl p-8 lg:p-10 shadow-[0_8px_32px_0_rgba(0,0,0,0.36)]">
             
             <motion.span 
@@ -71,7 +80,7 @@ export default function Hero() {
               {HERO_CONTENT.subtitle}
             </p>
 
-            {/* Injeção do nosso motor de conversão seguro (Silent Tracking) */}
+            {/* Componente Global de Silent Tracking */}
             <WhatsAppButton 
               buttonLocation="hero_section" 
               text="Agendar Consulta Especializada" 
