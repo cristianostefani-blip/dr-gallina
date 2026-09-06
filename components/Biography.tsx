@@ -7,7 +7,7 @@ const BIO_CONTENT = {
   sectionTag: "Trajetória Profissional",
   highlightQuote: "Excelência Jurídica, Ética e Transparência na Administração Pública.",
   paragraphs: [
-    "Com uma trajetória jurídica consolidada e profundo conhecimento em Direito Público, Administrativo e Privado. Marcelo Tadeu Gallina (OAB/SP 238.159) é um advogado dedicado à integridade das instituições.",
+    "Com uma trajetória jurídica consolidada e profundo conhecimento em Direito Público, Administrativo e Privado. Marcelo Tadeu Gallina (OAB/SP 238.159) é um advogado dedicado com equipe especializada.",
     "Sua ampla bagagem jurídica é fruto de uma longa experiência de atuação em diversas frentes do Direito, com destaque para as esferas civil e federal. Essa vivência na defesa e resolução de processos complexos lhe confere uma visão estratégica e global, permitindo oferecer soluções jurídicas inovadoras e eficazes.",
     "Reconhecido por sua liderança e pela confiança institucional que inspira, o Dr. Marcelo possui um histórico de excelência em posições de alto nível estratégico. Entre suas atuações de destaque, já presidiu a Comissão Especial na Secretaria Municipal de Gestão e Governo Digital de São Caetano do Sul, evidenciando sua capacidade de guiar processos complexos com imparcialidade."
   ]

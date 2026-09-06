@@ -31,7 +31,7 @@ export default function CallToAction() {
               Como podemos auxiliar na sua demanda?
             </h2>
             <p className="text-lg text-blue-200/80 max-w-2xl mx-auto">
-              Escolha o canal mais adequado para o seu momento.
+              Infraestrutura jurídica completa, com suporte especializado em todas as etapas do processo.
             </p>
           </div>
 
@@ -57,7 +57,7 @@ export default function CallToAction() {
                   onClick={handleAIOpen}
                   className="w-full py-4 rounded-lg bg-white/10 text-white font-medium hover:bg-white/20 transition-colors border border-white/10"
                 >
-                  Iniciar Pesquisa Virtual
+                  Iniciar Pesquisa Gratuita
                 </button>
                 <p className="text-[10px] text-blue-200/40 text-center uppercase tracking-wider leading-relaxed">
                   As respostas são geradas por Inteligência Artificial e possuem caráter meramente informativo, não configurando parecer jurídico, decisão ou garantia de êxito.
