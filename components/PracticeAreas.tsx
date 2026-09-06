@@ -57,7 +57,7 @@ const cardVariants: Variants = {
 
 export default function PracticeAreas() {
   return (
-    <section className="py-24 bg-[#0B132B] relative overflow-hidden">
+    <section id="practice-areas" className="py-24 bg-[#0B132B] relative overflow-hidden">
       {/* Elemento de background em Glassmorphism para profundidade */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-blue-900/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
 

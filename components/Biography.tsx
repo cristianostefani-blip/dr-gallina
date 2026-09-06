@@ -15,7 +15,7 @@ const BIO_CONTENT = {
 
 export default function Biography() {
   return (
-    <section className="py-16 lg:py-24 bg-white relative overflow-hidden">
+    <section id="biography" className="py-16 lg:py-24 bg-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* items-center garante a centralização vertical perfeita entre os dois blocos */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
