@@ -14,30 +14,35 @@ const HERO_CONTENT = {
 
 export default function Hero() {
   return (
-    // Removido o bg sólido e overflow-hidden para permitir o deslize da página sobre o fundo fixo
     <section id="hero" className="relative w-full min-h-[calc(100vh-6rem)] flex items-center justify-center lg:justify-start">
       
       {/* 
-        A Mágica do Parallax Fixo: 
-        A tag 'fixed' cola essa camada na tela (Viewport) e o '-z-10' a joga para trás de tudo. 
+        A MÁGICA DA ENGENHARIA APLICADA (Parallax via Máscara):
+        O 'clip-path' no container absoluto atua como uma janela. 
+        Ele "prende" o elemento fixed aos limites exatos da seção Hero.
+        Isso restaura a imagem, evita que ela suma atrás da página e cria o efeito de deslize perfeito!
       */}
-      <div className="fixed top-0 left-0 w-full h-screen grid grid-cols-1 lg:grid-cols-2 -z-10 pointer-events-none">
-        <div className="hidden lg:block bg-[#0B132B] h-full w-full"></div>
-        <div className="relative h-full w-full">
-          <Image
-            src="/images/hero.jpg"
-            alt={HERO_CONTENT.imageAlt}
-            fill
-            priority
-            sizes="(max-width: 1024px) 100vw, 50vw"
-            className="object-cover object-[center_top] opacity-60 lg:opacity-90"
-          />
-          {/* Gradiente sutil para misturar a imagem */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0B132B] via-transparent to-transparent lg:bg-gradient-to-l lg:from-transparent lg:via-[#0B132B]/50 lg:to-[#0B132B]"></div>
+      <div className="absolute inset-0 z-0" style={{ clipPath: "inset(0)" }}>
+        <div className="fixed top-0 left-0 w-full h-[100dvh] grid grid-cols-1 lg:grid-cols-2 pointer-events-none">
+          {/* Lado Institucional Sólido */}
+          <div className="hidden lg:block bg-[#0B132B] h-full w-full"></div>
+          {/* Lado da Imagem */}
+          <div className="relative h-full w-full">
+            <Image
+              src="/images/hero.jpg"
+              alt={HERO_CONTENT.imageAlt}
+              fill
+              priority
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="object-cover object-[center_top] opacity-60 lg:opacity-90"
+            />
+            {/* Gradiente de fusão */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0B132B] via-transparent to-transparent lg:bg-gradient-to-l lg:from-transparent lg:via-[#0B132B]/50 lg:to-[#0B132B]"></div>
+          </div>
         </div>
       </div>
 
-      {/* Camada de Conteúdo (Sobreposta e Rolável) */}
+      {/* Camada de Conteúdo (Rolável por cima do fundo fixo) */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-8 flex flex-col justify-center mt-12 lg:mt-0">
         
         <motion.div
@@ -46,7 +51,7 @@ export default function Hero() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="max-w-xl"
         >
-          {/* Glassmorphism Card - Desfoque reduzido para 8px (antes era md: 12px) */}
+          {/* Glassmorphism Card com desfoque reduzido para revelar os traços do fundo */}
           <div className="backdrop-blur-[8px] bg-white/5 border border-white/10 rounded-3xl p-8 lg:p-10 shadow-[0_8px_32px_0_rgba(0,0,0,0.36)]">
             
             <motion.span 
@@ -66,7 +71,7 @@ export default function Hero() {
               {HERO_CONTENT.subtitle}
             </p>
 
-            {/* Injeção do nosso motor de conversão seguro */}
+            {/* Injeção do nosso motor de conversão seguro (Silent Tracking) */}
             <WhatsAppButton 
               buttonLocation="hero_section" 
               text="Agendar Consulta Especializada" 
