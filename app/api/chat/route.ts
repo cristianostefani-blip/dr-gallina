@@ -14,9 +14,9 @@ export async function POST(req: Request) {
   try {
     const { message } = await req.json();
 
-    // Utilizando o modelo padronizado da nossa stack
+    // Atualização arquitetural para o modelo exigido pela API atual do Google
     const model = genAI.getGenerativeModel({
-      model: "gemini-2.5-flash-lite",
+      model: "gemini-3.5-flash-lite", 
       systemInstruction: SYSTEM_PROMPT,
     });
 
