@@ -24,14 +24,13 @@ const FOOTER_DATA = {
 
 export default function Footer() {
   return (
-    <footer className="bg-[#050914] text-slate-300 border-t border-white/10 pt-16 pb-6 relative overflow-hidden">
+    // CORREÇÃO: bg-[#050914] substituído por bg-[#0B132B] para ornar com o Header
+    <footer className="bg-[#0B132B] text-slate-300 border-t border-white/10 pt-16 pb-6 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 mb-12">
           
-          {/* Coluna 1: Centralização estrita no próprio eixo (items-center) */}
           <div className="lg:col-span-4 flex flex-col items-center lg:items-start space-y-6">
             <div className="flex flex-col items-center w-full lg:w-auto">
-              {/* Logo aumentada em 25% com contêiner quadrado baseado no recorte do Canva */}
               <div className="relative w-52 h-52 mb-2">
                 <Image 
                   src="/images/logoNew1.png" 
