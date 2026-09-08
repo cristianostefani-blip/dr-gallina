@@ -6,8 +6,18 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Dr. Marcelo Tadeu Gallina | Excelência Jurídica em Gestão Pública",
-  description: "Advocacia especializada em Direito Público, Administrativo e integridade institucional.",
+  title: "Dr. Marcelo Tadeu Gallina | Excelência Jurídica",
+  description: "Advocacia especializada em Gestão Pública. Compromisso inabalável com a Ética e Transparência.",
+  icons: {
+    icon: [
+      { url: '/favicon.ico' },
+      { url: '/favicon-96x96.png', sizes: '96x96', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/apple-touch-icon.png' }
+    ]
+  },
+  manifest: '/site.webmanifest',
 };
 
 export default function RootLayout({
